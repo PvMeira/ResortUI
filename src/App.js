@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 // Components
 import  Home  from "./pages/Home";
 import  Error from "./pages/Error";
@@ -16,7 +16,7 @@ function App() {
     <Switch>
       <Route path="/" exact component={Home}/>
       <Route path="/rooms/"  exact component={Rooms}/>
-      <Route path="/rooms/:room_id"  exact component={SingleRoom}/>
+      <Route path="/rooms/:slug"  exact component={SingleRoom}/>
 
       <Route component={Error}/>
     </Switch>
