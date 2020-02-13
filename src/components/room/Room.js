@@ -25,6 +25,7 @@ export default function Room({room}) {
     )
 }
 
+// Validate the given props, and emit a warning in the console.
 Room.propTypes = {
     room:PropTypes.shape({
         name:PropTypes.string.isRequired,
