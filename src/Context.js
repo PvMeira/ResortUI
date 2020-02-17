@@ -55,14 +55,13 @@ class RoomProvider extends Component {
   filter = (rooms, filter) => {
     let tempRooms = [...rooms];
     if (filter.type !== "all") tempRooms = tempRooms.filter(a => a.type === filter.type);
-    if (filter.price) tempRooms = tempRooms.filter(a => a.price === parseFloat(filter.price));
-    if (filter.pets) tempRooms = tempRooms.filter(a => a.pets === filter.pets);
-    if (filter.minSize) tempRooms = tempRooms.filter(a => a.size > filter.minSize);
+    if (filter.price) tempRooms = tempRooms.filter(a => a.price <= parseFloat(filter.price));
+    if (filter.pets) tempRooms = tempRooms.filter(a => a.pets === true);
+    if (filter.minSize) tempRooms = tempRooms.filter(a => a.size >= filter.minSize);
     if (filter.maxSize) tempRooms = tempRooms.filter(a => a.size <= filter.maxSize);
-    if (filter.minPrice) tempRooms = tempRooms.filter(a => a.price > filter.minPrice);
-    if (filter.maxPrice) tempRooms = tempRooms.filter(a => a.price <= filter.maxPrice);
+
     if (filter.capacity) tempRooms = tempRooms.filter(a => a.capacity >= filter.capacity);
-    if (filter.breakfast) tempRooms = tempRooms.filter(a => a.breakfast > filter.breakfast);
+    if (filter.breakfast) tempRooms = tempRooms.filter(a => a.breakfast === true);
     return tempRooms;
   };
 
